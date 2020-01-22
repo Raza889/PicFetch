@@ -15,7 +15,7 @@ class App extends React.Component {
                 },
 
             });
-        const unsplashData = response.data.results.map(image => ({
+        const unsplashData = response.data && response.data.results.map(image => ({
             id: image.id,
             height: image.height,
             width: image.width,
@@ -32,16 +32,16 @@ class App extends React.Component {
                 },
 
             });
-        const googleData = response.data.items.map(item => ({
+        const googleData = response.data.items ? response.data.items.map(item => ({
             id: item.title,
             height: item.image.height,
             width: item.image.width,
             description: item.title,
             urls: { regular: item.link },
-        }));
+        })): [];
         this.setState({
             images: [ ...unsplashData, ...googleData],
-        })
+        });
     }
     render() {
         return (
