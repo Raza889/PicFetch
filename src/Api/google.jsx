@@ -1,5 +1,6 @@
 import axios from 'axios';
+import env from 'react-dotenv';
 
 export default axios.create({
-    baseURL: 'https://www.googleapis.com/customsearch/v1?key=AIzaSyAgWGPWqZQXsPSUT0WRUTxZYzp9_CxrSg0&cx=016836439242425542395:lfrezsi2kcr&q=land&searchType=Image',
+    baseURL: `https://www.googleapis.com/customsearch/v1?key=${env.GOOGLE_KEY}&cx=${env.GOOGLE_CX}&q=land&searchType=Image`,
 })
